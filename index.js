@@ -19,30 +19,30 @@ function CryptoCapital (cfg) {
     // Open Socket
     this.socket = io(CRYPTOCAP_API);
 
-    // Socket Event Listeners
-    this.socket.on('connect', function () {
-        this.emit('connect');
-    });
+//    // Socket Event Listeners
+//    this.socket.on('connect', function () {
+//        this.emit('connect');
+//    });
     
-    this.socket.on('ack', function (data) {
-        this.emit('ack', JSON.parse(data));
-    });
+//    this.socket.on('ack', function (data) {
+//        this.emit('ack', JSON.parse(data));
+//    });
 
-    this.socket.on('err', function (data) {
-        this.emit('err', JSON.parse(data));
-    });
+//    this.socket.on('err', function (data) {
+//        this.emit('err', JSON.parse(data));
+//    });
 
-    this.socket.on('error', function (data) {
-        this.emit('error', JSON.parse(data));
-    });
+//    this.socket.on('error', function (data) {
+//        this.emit('error', JSON.parse(data));
+//    });
 
-    this.socket.on('transfer', function (data) {
-        this.emit('transfer', JSON.parse(data));
-    });
+//    this.socket.on('transfer', function (data) {
+//        this.emit('transfer', JSON.parse(data));
+//    });
 
-    this.socket.on('account', function (data) {
-        this.emit('account', JSON.parse(data));
-    });
+//    this.socket.on('account', function (data) {
+//        this.emit('account', JSON.parse(data));
+//    });
 
 }
 

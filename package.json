@@ -1,6 +1,6 @@
 {
   "name": "cryptocapjs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Node.JS library for Crypto Capital API",
   "author": "Jim Phillips <jim@ergophobia.org>",
   "contributors": [
