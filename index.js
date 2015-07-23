@@ -50,6 +50,18 @@ function CryptoCapital (cfg) {
 
 util.inherits(CryptoCapital, events.EventEmitter);
 
+CryptoCapital.prototype.generate = function (callback) {
+
+    var ec = new jscrypto.ECDSA({"curve": 'secp256k1'});
+    var keypair = ec.generateKeyPairHex();
+
+    var cckey = new Buffer(keypair.ecprvhex, 'hex').toString('base64');
+    var ccpub = new Buffer(keypair.ecpubhex, 'hex').toString('base64');
+ 
+    callback({ 'key' : cckey, 'pub': ccpub });
+
+};
+
 CryptoCapital.prototype.auth = function (args, callback) {
 
     var self = this;
