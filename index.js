@@ -6,6 +6,8 @@ var jscrypto = require('jsrsasign');
 
 function CryptoCapital (cfg) {
 
+    var self = this;
+
     var CRYPTOCAP_API = 'https://api.cryptocapital.co';
 
     // Setup Event Emitter
@@ -21,28 +23,28 @@ function CryptoCapital (cfg) {
 
     // Socket Event Listeners
     this.socket.on('connect', function () {
-        this.emit('connect');
+        self.emit('connect');
     });
     
-//    this.socket.on('ack', function (data) {
-//        this.emit('ack', JSON.parse(data));
-//    });
+    this.socket.on('ack', function (data) {
+        self.emit('ack', JSON.parse(data));
+    });
 
-//    this.socket.on('err', function (data) {
-//        this.emit('err', JSON.parse(data));
-//    });
+    this.socket.on('err', function (data) {
+        self.emit('err', JSON.parse(data));
+    });
 
-//    this.socket.on('error', function (data) {
-//        this.emit('error', JSON.parse(data));
-//    });
+    this.socket.on('error', function (data) {
+        self.emit('error', JSON.parse(data));
+    });
 
-//    this.socket.on('transfer', function (data) {
-//        this.emit('transfer', JSON.parse(data));
-//    });
+    this.socket.on('transfer', function (data) {
+        self.emit('transfer', JSON.parse(data));
+    });
 
-//    this.socket.on('account', function (data) {
-//        this.emit('account', JSON.parse(data));
-//    });
+    this.socket.on('account', function (data) {
+        self.emit('account', JSON.parse(data));
+    });
 
 }
 
