@@ -76,6 +76,20 @@ CryptoCapital.prototype.auth = function (args, callback) {
 
 };
 
+CryptoCapital.prototype.ping = function (args, callback) {
+
+    var self = this;
+
+    var msg = { apiVersion: 2, 
+                key: self.ccpub, 
+                nonce: Date.now(),
+                params: args };
+    msg.signed = doSign(self.cckey, 'PING' + msg.key.toString() + msg.nonce.toString());
+    self.socket.emit('ping', JSON.stringify(msg));
+    callback(msg);
+
+};
+
 CryptoCapital.prototype.transfer = function (args, callback) {
 
     var self = this;
